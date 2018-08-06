@@ -21,7 +21,7 @@ endif
 function s:prepstatement()
     let l:types=join(g:commentsearch_types_list, '|')
     if len(g:commentsearch_types_list) >1
-        let l:types='(' .l:types .')'
+        let l:types='\(' .l:types .'\)'
     endif
 
     return l:types
