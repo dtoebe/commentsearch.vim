@@ -19,9 +19,9 @@ endif
 " prepstatement joins commentsearch_types_list to a single string and adds ()
 " if needed {{{
 function s:prepstatement()
-    let l:types=join(g:commentsearch_types_list, '|')
+    let l:types=join(g:commentsearch_types_list, '\|')
     if len(g:commentsearch_types_list) >1
-        let l:types='\(' .l:types .'\)'
+        let l:types='\(' . l:types . '\)'
     endif
 
     return l:types
@@ -50,7 +50,7 @@ function s:CommentSearchVimGrepAdd(expr)
         return ''
     endif
 
-    execute 'vimgrep /' . s:prepstatement() . '/gj ' .a:expr
+    execute 'vimgrepadd /' . s:prepstatement() . '/gj ' .a:expr
 
     cwindow
 endfunction
